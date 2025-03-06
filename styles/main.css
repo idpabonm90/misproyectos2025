@@ -10,7 +10,7 @@ body {
 /* Barra de Navegación Lateral */
 .sidebar {
     width: 250px;
-    background-color: rgb(255, 255, 255);
+    background-color: white;
     color: white;
     display: flex;
     flex-direction: column;
@@ -19,7 +19,13 @@ body {
     height: 100vh;
     z-index: 1000;
 }
-
+.sidebar-logo {
+    padding: 20px;
+    text-align: center;
+    font-size: 1.5rem;
+    font-weight: bold;
+    border-bottom: 1px solid #34495e;
+}
 .sidebar-menu {
     list-style: none;
     padding: 0;
@@ -41,11 +47,18 @@ body {
     padding: 15px 20px;
     color: black;
     text-decoration: none;
-    transition: background-color 0.3s;
+    transition: background-color 0.3s, color 0.3s;
 }
 
-.sidebar-menu a:hover {
-    background-color: #34495e;
+
+/* Estilo para el ítem activo */
+.sidebar-menu a.active {
+    color: black; /* Fondo para el ítem activo */
+}
+
+/* Estilo para los ítems no seleccionados */
+.sidebar-menu a:not(.active) {
+    color: #4C4C4C; /* Color gris para los ítems no seleccionados */
 }
 
 .sidebar-menu i {
@@ -64,8 +77,8 @@ body {
     top: 0;
     left: 0;
     width: 100%;
-    background-color: rgb(255, 255, 255);
-    padding: 20px;
+    background-color: #2c3e50;
+    padding: 10px;
     z-index: 1001;
     justify-content: space-between;
     align-items: center;
@@ -74,24 +87,31 @@ body {
 .topbar-logo {
     font-size: 1.5rem;
     font-weight: bold;
-    color: black;
+    color: white;
     margin-left: 10px; /* Margen para el logo */
 }
-
+/* Botón de Menú Hamburguesa */
 .sidebar-toggle {
-    background: none;
+    display: none;
+    position: sticky;
+    top: 10px;
+    left: 10px;
+    padding: 10px;
+    background-color: #2c3e50;
+    color: white;
     border: none;
-    color: black;
-    font-size: 1.5rem;
+    border-radius: 5px;
     cursor: pointer;
-    margin-right: 30px; /* Margen para el botón de hamburguesa */
+    z-index: 1001;
 }
-
+.sidebar-toggle i {
+    font-size: 2rem;
+}
 /* Contenido Principal */
 .main-content {
     flex-grow: 1;
     padding: 20px;
-    background-color: rgb(248,248,248);
+    background-color: #F8F8F8;
     margin-left: 250px; /* Ajuste para la barra lateral */
     transition: margin-left 0.3s;
 }
@@ -100,14 +120,31 @@ body {
 @media (max-width: 768px) {
     .sidebar {
         transform: translateX(-100%);
-        top: 47px; /* Ajuste para la barra superior */
-        height: calc(100vh - 47px);
+        top: px; /* Ajuste para la barra superior */
+        height: calc(100vh - 60px);
     }
-
+    .sidebar-toggle {
+        display: block; /* Muestra el botón en dispositivos móviles */
+    }
     .sidebar.active {
         transform: translateX(0);
+        width: 250px;
+        background-color: white;
+        color: white;
+        display: flex;
+        flex-direction: column;
+        transition: transform 0.3s;
+        position: fixed;
+        height: 100vh;
+        z-index: 1000;
+        transition: transform 3s ease-in-out; margin-left 0.2s;       
     }
-
+    .sidebar:not(.active) {
+        height: 100vh;
+        z-index: 1000;
+        transition: transform 2s ease-in-out; /* Transición de salida de 3 segundos */
+    }
+    
     .topbar {
         display: flex;
     }
@@ -115,5 +152,5 @@ body {
     .main-content {
         margin-left: 0;
         padding-top: 80px; /* Ajuste para la barra superior */
-    }
+         }
 }

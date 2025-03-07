@@ -1,12 +1,78 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title></title>
+    <title>Mi Página Personal</title>
+    <!-- Bootstrap Icons -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css" rel="stylesheet">
+    <!-- Estilos personalizados -->
+    <link rel="stylesheet" href="styles/main.css">
 </head>
 <body>
-    <h1>hola mundo</h1>
-    <h2>realizando comits con github</h2>
+    <!-- Barra Superior (para móviles) -->
+    <div class="topbar">
+        <!-- Logo -->
+        <div class="topbar-logo">
+            <span>MiNombre</span>
+        </div>
+
+        <!-- Botón de Menú Hamburguesa -->
+        <div class="sidebar-toggle">
+            <i class="bi bi-list"></i>
+        </div>
+    </div>
+
+    <!-- Barra de Navegación Lateral -->
+<nav class="sidebar">
+    <!-- Menú -->
+    <ul class="sidebar-menu">
+        <li>
+            <a href="#home">
+                <i class="bi bi-house"></i>
+                <span>Home</span>
+            </a>
+        </li>
+        <li>
+            <a href="#about">
+                <i class="bi bi-person"></i>
+                <span>About</span>
+            </a>
+        </li>
+        <li>
+            <a href="#services">
+                <i class="bi bi-gear"></i>
+                <span>Services</span>
+            </a>
+        </li>
+        <li>
+            <a href="#portfolio">
+                <i class="bi bi-briefcase"></i>
+                <span>Portfolio</span>
+            </a>
+        </li>
+        <li>
+            <a href="#news">
+                <i class="bi bi-newspaper"></i>
+                <span>News</span>
+            </a>
+        </li>
+        <li>
+            <a href="#contact">
+                <i class="bi bi-envelope"></i>
+                <span>Contact</span>
+            </a>
+        </li>
+    </ul>
+</nav>
+
+    <!-- Contenido Principal -->
+    <main class="main-content">
+        <h1>Bienvenido a Mi Página</h1>
+        <p>Esta es la sección principal de la página.</p>
+    </main>
+
+    <!-- Scripts -->
+    <script src="scripts/main.js"></script>
 </body>
 </html>

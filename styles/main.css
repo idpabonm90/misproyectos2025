@@ -87,7 +87,7 @@ body {
 .topbar-logo {
     font-size: 1.5rem;
     font-weight: bold;
-    color: white;
+    color: black;
     margin-left: 10px; /* Margen para el logo */
 }
 /* Botón de Menú Hamburguesa */
@@ -126,6 +126,12 @@ body {
     .sidebar-toggle {
         display: block; /* Muestra el botón en dispositivos móviles */
     }
+    .topbar-logo {
+        font-size: 1.5rem;
+        font-weight: bold;
+        color: white;
+        margin-left: 10px; /* Margen para el logo */
+    }
     .sidebar.active {
         transform: translateX(0);
         width: 250px;
@@ -153,4 +159,5 @@ body {
         margin-left: 0;
         padding-top: 80px; /* Ajuste para la barra superior */
          }
+    
 }

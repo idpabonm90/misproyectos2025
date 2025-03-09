@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mi Página Personal</title>
+<<<<<<< HEAD
     <!-- Bootstrap Icons -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css" rel="stylesheet">
     <!-- Estilos personalizados -->
@@ -114,5 +115,271 @@
 
     <!-- Scripts -->
     <script src="scripts/main.js"></script>
+=======
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Estilos personalizados -->
+    <link rel="stylesheet" href="styles/custom.css">
+     <!-- Bootstrap Icons -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css" rel="stylesheet">
+    <!-- Firebase -->
+    <script type="module">
+        // Importa las funciones necesarias de Firebase
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/11.4.0/firebase-app.js";
+        import { getFirestore, doc, getDoc, setDoc, updateDoc } from "https://www.gstatic.com/firebasejs/11.4.0/firebase-firestore.js";
+
+        // Configuración de Firebase
+        const firebaseConfig = {
+            apiKey: "AIzaSyAlXcaVddE6t9XKWKTMMvtZLal82K42Jbo",
+            authDomain: "misproyectos2025-4db85.firebaseapp.com",
+            projectId: "misproyectos2025-4db85",
+            storageBucket: "misproyectos2025-4db85.firebasestorage.app",
+            messagingSenderId: "423212795986",
+            appId: "1:423212795986:web:5ce65055e0b0dc6ee3f78b",
+            measurementId: "G-ZJFCHW5732"
+        };
+
+        // Inicializa Firebase
+        const app = initializeApp(firebaseConfig);
+        const db = getFirestore(app);
+
+        // Referencia al contador de visitas
+        const visitCounter = document.getElementById('visit-counter');
+
+        // Función para actualizar el contador
+        const updateVisitCount = async () => {
+            try {
+                // Obtén el documento del contador
+                const counterRef = doc(db, 'counters', 'visitCount');
+                const counterDoc = await getDoc(counterRef);
+
+                if (counterDoc.exists()) {
+                    // Si el documento existe, incrementa el contador
+                    const currentCount = counterDoc.data().count || 0;
+                    const newCount = currentCount + 1;
+                    await updateDoc(counterRef, { count: newCount });
+                    visitCounter.textContent = newCount;
+                } else {
+                    // Si el documento no existe, créalo
+                    await setDoc(counterRef, { count: 1 });
+                    visitCounter.textContent = 1;
+                }
+            } catch (error) {
+                console.error('Error al actualizar el contador:', error);
+            }
+        };
+
+        // Llama a la función para actualizar el contador
+        updateVisitCount();
+    </script>
+</head>
+<body>
+    <!-- Barra de Navegación -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="#">Mi Nombre</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#inicio">Inicio</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#sobre-mi">Sobre Mí</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#habilidades">Habilidades</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#proyectos">Proyectos</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#contacto">Contacto</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Sección Inicio -->
+    <section id="inicio" class="bg-primary text-white text-center py-5">
+        <div class="container">
+            <h1 class="display-4">Bienvenido a Mi Página Personal</h1>
+            <p class="lead">Desarrollador Web | Apasionado por la Tecnología</p>
+            <a href="#sobre-mi" class="btn btn-light btn-lg mt-4">Conóceme</a>
+        </div>
+    </section>
+
+    <!-- Sección Sobre Mí -->
+    <section id="sobre-mi" class="py-5">
+        <div class="container">
+            <h2 class="text-center mb-4">Sobre Mí</h2>
+            <div class="row">
+                <div class="col-md-6">
+                    <img src="assets/foto-perfil.jpg" alt="Foto de perfil" class="img-fluid rounded-circle">
+                </div>
+                <div class="col-md-6">
+                    <p class="lead">Hola, soy Iván Pabón. Soy un desarrollador web con experiencia en [tus habilidades]. Me apasiona crear soluciones tecnológicas que impacten positivamente en la vida de las personas.</p>
+                    <p>En mi tiempo libre, disfruto de [tus hobbies]. Siempre estoy aprendiendo nuevas tecnologías y mejorando mis habilidades.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección Habilidades -->
+    <section id="habilidades" class="bg-light py-5">
+        <div class="container">
+            <h2 class="text-center mb-4">Habilidades</h2>
+            <div class="row">
+                <div class="col-md-4 text-center">
+                    <h3>Frontend</h3>
+                    <p>HTML, CSS, JavaScript, Bootstrap, React</p>
+                </div>
+                <div class="col-md-4 text-center">
+                    <h3>Backend</h3>
+                    <p>Node.js, Express, MongoDB</p>
+                </div>
+                <div class="col-md-4 text-center">
+                    <h3>DevOps</h3>
+                    <p>Docker, Kubernetes, CI/CD</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección Proyectos -->
+    <section id="proyectos" class="py-5">
+        <div class="container">
+            <h2 class="text-center mb-4">Proyectos</h2>
+            <div class="row">
+                <div class="col-md-4 mb-4">
+                    <div class="card">
+                        <img src="assets/proyecto1.jpg" class="card-img-top" alt="Proyecto 1">
+                        <div class="card-body">
+                            <h5 class="card-title">Proyecto 1</h5>
+                            <p class="card-text">Descripción breve del proyecto.</p>
+                            <a href="#" class="btn btn-primary">Ver más</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <div class="card">
+                        <img src="assets/proyecto2.jpg" class="card-img-top" alt="Proyecto 2">
+                        <div class="card-body">
+                            <h5 class="card-title">Proyecto 2</h5>
+                            <p class="card-text">Descripción breve del proyecto.</p>
+                            <a href="#" class="btn btn-primary">Ver más</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <div class="card">
+                        <img src="assets/proyecto3.jpg" class="card-img-top" alt="Proyecto 3">
+                        <div class="card-body">
+                            <h5 class="card-title">Proyecto 3</h5>
+                            <p class="card-text">Descripción breve del proyecto.</p>
+                            <a href="#" class="btn btn-primary">Ver más</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section id="contacto" class="bg-light py-5">
+        <div class="container">
+            <h2 class="text-center mb-4">Contacto</h2>
+            
+            <!-- Información de contacto -->
+            <div class="row justify-content-center">
+                <div class="col-md-6 text-center">
+                    <p class="lead">¿Quieres ponerte en contacto conmigo?</p>
+                    <ul class="list-unstyled">
+                        <li class="mb-2">
+                            <i class="bi bi-envelope fs-4 me-2"></i>
+                            <a href="mailto:tuemail@example.com" class="text-decoration-none">idpabonm@gmail.com</a>
+                        </li>
+                        <li class="mb-2">
+                            <i class="bi bi-telephone fs-4 me-2"></i>
+                            <a href="tel:+1234567890" class="text-decoration-none">+57 305 3968994</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+    
+            <!-- Íconos de redes sociales -->
+            <div class="text-center mt-4">
+                <h3 class="mb-3">Mis Redes Sociales</h3>
+                <div class="d-flex justify-content-center gap-3">
+                    <a href="https://www.linkedin.com/in/ivan-pabon-mesa/" target="_blank" class="text-decoration-none">
+                        <i class="bi bi-linkedin fs-3 text-primary"></i>
+                    </a>
+                    <a href="https://github.com/idpabonm90" target="_blank" class="text-decoration-none">
+                        <i class="bi bi-github fs-3 text-dark"></i>
+                    </a>
+                    <a href="https://x.com/idpabon90?t=qTo4916r8DNYC3kILiQOvA&s=09" target="_blank" class="text-decoration-none">
+                        <i class="bi bi-x fs-3 text-dark"></i> <!-- Nuevo ícono de X -->
+                    </a>
+                    <a href="https://www.instagram.com/ipabonm?igsh=MW5paHNzbmZ2aDE3aQ==" target="_blank" class="text-decoration-none">
+                        <i class="bi bi-instagram fs-3 text-danger"></i> <!-- Nuevo ícono de Instagram -->
+                    </a>
+                </div>
+            </div>
+    
+            <!-- Botones de acción -->
+            <div class="text-center mt-4">
+                <a href="ruta/a/tu-cv.pdf" download class="btn btn-primary btn-lg me-3">
+                    <i class="bi bi-download me-2"></i>Descargar CV
+                </a>
+                <a href="https://www.linkedin.com/in/ivan-pabon-mesa/" target="_blank" class="btn btn-outline-primary btn-lg">
+                    <i class="bi bi-linkedin me-2"></i>Ver mi perfil en LinkedIn
+                </a>
+            </div>
+             <!-- Contador de visitas con diseño de cuenta regresiva -->
+            <div class="mt-4">
+                <div class="bg-primary p-4 shadow-lg text-white" style="max-width: 300px; margin: 0 auto;">
+                    <div class="text-center">
+                        <i class="bi bi-eye-fill fs-3 me-2"></i> <!-- Ícono de ojo -->
+                        <h2 class="display-2 fw-bold text-light mt-2" id="visit-counter">0</h2>
+                        <p class="text-white mb-0 ">Visitas</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección Contacto -->
+    <!-- <section id="contacto" class="bg-dark text-white py-5">
+        <div class="container">
+            <h2 class="text-center mb-4">Contacto</h2>
+            <form>
+                <div class="mb-3">
+                    <label for="nombre" class="form-label">Nombre</label>
+                    <input type="text" class="form-control" id="nombre" required>
+                </div>
+                <div class="mb-3">
+                    <label for="email" class="form-label">Correo Electrónico</label>
+                    <input type="email" class="form-control" id="email" required>
+                </div>
+                <div class="mb-3">
+                    <label for="mensaje" class="form-label">Mensaje</label>
+                    <textarea class="form-control" id="mensaje" rows="5" required></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary">Enviar</button>
+            </form>            
+        </div>
+    </section> -->
+
+    <!-- Pie de Página -->
+    <footer class="bg-secondary text-white text-center py-3">
+        <div class="container">
+            <p>&copy; 2025 [Iván Pabón]. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+>>>>>>> main
 </body>
 </html>

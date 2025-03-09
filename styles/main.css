@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 /* Estilos generales */
 body {
     font-family: 'Arial', sans-serif;
@@ -160,4 +161,48 @@ body {
         padding-top: 80px; /* Ajuste para la barra superior */
          }
     
+=======
+/* Estilos personalizados */
+body {
+    padding-top: 56px; /* Ajuste para la barra de navegación fija */
+}
+
+section {
+    padding: 60px 0;
+}
+
+.navbar {
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+#inicio {
+    padding: 100px 0;
+}
+
+#sobre-mi img {
+    max-width: 200px;
+}
+
+.card {
+    transition: transform 0.3s;
+}
+
+.card:hover {
+    transform: translateY(-10px);
+}
+/* Animación de parpadeo */
+@keyframes blink {
+    0% { opacity: 1; }
+    50% { opacity: 0; }
+    100% { opacity: 1; }
+}
+
+#visit-counter {
+    animation: blink 1s infinite alternate;
+}
+
+@keyframes blink {
+    from { opacity: 1; }
+    to { opacity: 0.7; }
+>>>>>>> main
 }

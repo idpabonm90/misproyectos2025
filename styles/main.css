@@ -328,3 +328,21 @@ body {
      
     
 }
+/* Estilos para tabletas */
+@media (min-width: 768px) and (max-width: 1024px) {
+    .content-container {
+        width: 100%; /* Reduce el ancho del contenedor */
+    }
+
+    .info-container h1 {
+        width: 100%;
+        font-size: 3rem; /* Aumenta el tamaño del título */
+    }
+
+    .info-container p {
+        font-size: 1.3rem; /* Aumenta el tamaño del párrafo */
+    }
+    .social-links{
+        justify-content: center;
+    }
+  }

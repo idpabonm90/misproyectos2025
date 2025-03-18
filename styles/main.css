@@ -311,7 +311,7 @@ body {
     /* Estilos para monitores grandes (más de 1024px) */
 @media (min-width: 1025px) {
     .content-container {
-        width: 80%; /* Reduce el ancho del contenedor */
+        width: 100%; /* Reduce el ancho del contenedor */
     }
 
     .info-container h1 {
